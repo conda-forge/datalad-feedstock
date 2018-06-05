@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.9.3" %}
-{% set sha256 = "081a4dba4a046a949744dd94232c88fe22fca4decb4ff77edbac842183824944" %}
+{% set version = "0.10.0rc5" %}
+{% set sha256 = "fb3a5426b7bf037f1962933cf29246ddbfcb0bc1cef66d8ea1336d33640eab21" %}
 
 package:
   name: {{ name|lower }}
@@ -42,11 +42,9 @@ requirements:
     - msgpack-python
     - patool >=1.7
     - pygithub
-    - pyld <0.8|>=0.8.2
     - python
     - requests >=1.2
     - requests-ftp
-    - scrapy >=1.1.0rc3
     - simplejson
     - six >=1.8.0
     - tqdm
