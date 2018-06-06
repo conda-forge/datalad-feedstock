@@ -40,14 +40,18 @@ requirements:
     - keyrings.alt
     - mock >=1.0.1
     - msgpack-python
+    - mutagen
     - patool >=1.7
+    - pillow
     - pygithub
+    - pyperclip
     - python
     - requests >=1.2
     - requests-ftp
     - simplejson
     - six >=1.8.0
     - tqdm
+    - whoosh
     - wrapt
     
 test:
