@@ -20,8 +20,9 @@ management, however, remains with the original data providers.
 Current build status
 ====================
 
-All platforms:
-[![noarch](https://img.shields.io/circleci/project/github/conda-forge/datalad-feedstock/master.svg?label=noarch)](https://circleci.com/gh/conda-forge/datalad-feedstock)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/datalad-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/datalad-feedstock)
+![OSX disabled](https://img.shields.io/badge/OSX-disabled-lightgrey.svg)
+![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
 
 Current release info
 ====================
