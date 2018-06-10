@@ -44,6 +44,8 @@ requirements:
     - patool >=1.7
     - pygithub
     - pyld <0.8|>=0.8.2
+    # TODO: pyliblzma for 2.7 for some functionality, NA in conda-forge yet
+    # - pyliblzma  # [py<34]
     - python
     - requests >=1.2
     - requests-ftp
