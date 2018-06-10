@@ -34,8 +34,7 @@ requirements:
   run:
     - appdirs
     - boto
-    # TODO
-    # - exif
+    - exifread
     - fasteners
     - git-annex
     - gitpython >=2.0.8
@@ -51,6 +50,7 @@ requirements:
     - pygithub
     - pyld <0.8|>=0.8.2
     - backports.lzma  # [py<33]
+    - pillow
     - python
     # TODO
     # - python-xmp-toolkit
