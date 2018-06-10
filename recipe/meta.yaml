@@ -20,6 +20,8 @@ build:
     - git-annex-remote-datalad-archives=datalad.customremotes.archives:main
     - git-annex-remote-datalad=datalad.customremotes.datalad:main
   script: python -m pip install --no-deps --ignore-installed .
+  # Do not even attempt until we get git-annex in there
+  skip: True  # [not linux]
 
 requirements:
   build:
