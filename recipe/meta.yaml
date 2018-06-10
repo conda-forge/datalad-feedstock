@@ -12,6 +12,7 @@ source:
   sha256: {{ sha256 }}
   patches:
     - 0001-BF-Centralize-getting-information-about-console-widt.patch
+    - 0002-ENH-support-backports.lzma-as-an-alternative-to-pyli.patch
 
 build:
   number: 0
@@ -46,8 +47,7 @@ requirements:
     - patool >=1.7
     - pygithub
     - pyld <0.8|>=0.8.2
-    # TODO: pyliblzma for 2.7 for some functionality, NA in conda-forge yet
-    # - pyliblzma  # [py<34]
+    - backports.lzma  # [py<33]
     - python
     - requests >=1.2
     - requests-ftp
