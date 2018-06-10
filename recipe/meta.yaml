@@ -34,6 +34,8 @@ requirements:
   run:
     - appdirs
     - boto
+    # TODO
+    # - exif
     - fasteners
     - git-annex
     - gitpython >=2.0.8
@@ -43,19 +45,23 @@ requirements:
     - keyring >=8.0
     - keyrings.alt
     - mock >=1.0.1
+    - mutagen
     - msgpack-python
     - patool >=1.7
     - pygithub
     - pyld <0.8|>=0.8.2
     - backports.lzma  # [py<33]
     - python
+    # TODO
+    # - python-xmp-toolkit
+    - psutil
     - requests >=1.2
     - requests-ftp
     - secretstorage
-    - scrapy >=1.1.0rc3
     - simplejson
     - six >=1.8.0
     - tqdm
+    - whoosh
     - wrapt
     
 test:
