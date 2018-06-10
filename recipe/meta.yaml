@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.9.3" %}
-{% set sha256 = "081a4dba4a046a949744dd94232c88fe22fca4decb4ff77edbac842183824944" %}
+{% set version = "0.10.0" %}
+{% set sha256 = "66018d5315e22fe800bad4a3b4aacfc0e68b63a0cd1e3d752e6719b0882cbac9" %}
 
 package:
   name: {{ name|lower }}
@@ -40,16 +40,18 @@ requirements:
     - keyrings.alt
     - mock >=1.0.1
     - msgpack-python
+    - mutagen
     - patool >=1.7
+    - pillow
     - pygithub
-    - pyld <0.8|>=0.8.2
+    - pyperclip
     - python
     - requests >=1.2
     - requests-ftp
-    - scrapy >=1.1.0rc3
     - simplejson
     - six >=1.8.0
     - tqdm
+    - whoosh
     - wrapt
     
 test:
