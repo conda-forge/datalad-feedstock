@@ -15,7 +15,6 @@ source:
 
 build:
   number: 0
-  noarch: python
   entry_points:
     - datalad=datalad.cmdline.main:main
     - git-annex-remote-datalad-archives=datalad.customremotes.archives:main
