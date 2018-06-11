@@ -1,0 +1,62 @@
+From 47736cd3e85af9aca009373d10a6416f375cd3a9 Mon Sep 17 00:00:00 2001
+From: Yaroslav Halchenko <debian@onerussian.com>
+Date: Sun, 10 Jun 2018 22:14:02 -0400
+Subject: [PATCH] ENH(TST): Skip (do not fail) testing extractors if they fail
+ to load, fail if none loads
+
+Closes #2646
+---
+ datalad/metadata/extractors/tests/test_base.py | 18 ++++++------------
+ 1 file changed, 6 insertions(+), 12 deletions(-)
+
+diff --git a/datalad/metadata/extractors/tests/test_base.py b/datalad/metadata/extractors/tests/test_base.py
+index 779b763f..1d409563 100644
+--- a/datalad/metadata/extractors/tests/test_base.py
++++ b/datalad/metadata/extractors/tests/test_base.py
+@@ -25,24 +25,17 @@ def check_api(no_annex, path):
+     ds = Dataset(path).create(force=True, no_annex=no_annex)
+     ds.add('.')
+     ok_clean_git(ds.path)
+-    processed_extractors = []
+ 
+-    skip = []
++    processed_extractors, skipped_extractors = [], []
+     for extractor_ep in iter_entry_points('datalad.metadata.extractors'):
+-        processed_extractors.append(extractor_ep.name)
+         # we need to be able to query for metadata, even if there is none
+         # from any extractor
+         try:
+             extractor_cls = extractor_ep.load()
+         except Exception as exc:
+             exc_ = str(exc)
+-            #if 'Exempi library not found.' in exc_ or \
+-            #   'which was built for Mac OS X 10' in exc_:
+-            # known problems on OSX
+-            if on_osx:
+-                skip += [exc_]
+-                continue
+-            raise
++            skipped_extractors += [exc_]
++            continue
+         extractor = extractor_cls(
+             ds, paths=['file.dat'])
+         meta = extractor.get_metadata(
+@@ -61,12 +54,13 @@ def check_api(no_annex, path):
+         # precious file
+         if extractor_ep.name == 'datalad_core':
+             assert 'file.dat' in cm
++        processed_extractors.append(extractor_ep.name)
+     assert "datalad_core" in processed_extractors, \
+         "Should have managed to find at least the core extractor extractor"
+-    if skip:
++    if skipped_extractors:
+         raise SkipTest(
+             "Not fully tested/succeded since some extractors failed"
+-            " to load:\n%s" % ("\n".join(skip)))
++            " to load:\n%s" % ("\n".join(skipped_extractors)))
+ 
+ 
+ def test_api_git():
+-- 
+2.17.0
+
