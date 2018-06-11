@@ -13,6 +13,7 @@ source:
   patches:
     - 0001-BF-Centralize-getting-information-about-console-widt.patch
     - 0002-ENH-support-backports.lzma-as-an-alternative-to-pyli.patch
+    - 0001-Use-backports.lzma-instead-of-pyliblzma-in-setup.py.patch
 
 build:
   number: 0
