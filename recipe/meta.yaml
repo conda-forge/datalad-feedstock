@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.9.3" %}
-{% set sha256 = "081a4dba4a046a949744dd94232c88fe22fca4decb4ff77edbac842183824944" %}
+{% set version = "0.10.0" %}
+{% set sha256 = "66018d5315e22fe800bad4a3b4aacfc0e68b63a0cd1e3d752e6719b0882cbac9" %}
 
 package:
   name: {{ name|lower }}
@@ -10,15 +10,25 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    # Should be upstreamed in next release:
+    - 0001-ENH-TST-Skip-do-not-fail-testing-extractors-if-they-.patch
+    - 0001-BF-Centralize-getting-information-about-console-widt.patch
+    - 0002-ENH-support-backports.lzma-as-an-alternative-to-pyli.patch
+    - 0001-BF-auto-also-proxy-os.stat-call-which-is-now-used-by.patch 
+    # Should stay here
+    - 0001-Use-backports.lzma-instead-of-pyliblzma-in-setup.py.patch
 
 build:
   number: 0
-  noarch: python
   entry_points:
     - datalad=datalad.cmdline.main:main
     - git-annex-remote-datalad-archives=datalad.customremotes.archives:main
     - git-annex-remote-datalad=datalad.customremotes.datalad:main
   script: python -m pip install --no-deps --ignore-installed .
+  # Do not even attempt until we get git-annex in there
+  # Also skip py2 for now since lacks python-dbus needed for secretstorage 2.x needed by keyring
+  skip: True  # [not linux or py<32]
 
 requirements:
   build:
@@ -30,6 +40,7 @@ requirements:
   run:
     - appdirs
     - boto
+    - exifread
     - fasteners
     - git-annex
     - gitpython >=2.0.8
@@ -39,17 +50,24 @@ requirements:
     - keyring >=8.0
     - keyrings.alt
     - mock >=1.0.1
+    - mutagen
     - msgpack-python
     - patool >=1.7
     - pygithub
     - pyld <0.8|>=0.8.2
+    - backports.lzma  # [py<33]
+    - pillow
     - python
+    # TODO
+    # - python-xmp-toolkit
+    - psutil
     - requests >=1.2
     - requests-ftp
-    - scrapy >=1.1.0rc3
+    - secretstorage  # [py>32]
     - simplejson
     - six >=1.8.0
     - tqdm
+    - whoosh
     - wrapt
     
 test:

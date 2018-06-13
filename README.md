@@ -20,12 +20,16 @@ management, however, remains with the original data providers.
 Current build status
 ====================
 
-All platforms: [![Circle CI](https://circleci.com/gh/conda-forge/datalad-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/datalad-feedstock)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/datalad-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/datalad-feedstock)
+![OSX disabled](https://img.shields.io/badge/OSX-disabled-lightgrey.svg)
+![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/datalad/badges/version.svg)](https://anaconda.org/conda-forge/datalad)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/datalad/badges/downloads.svg)](https://anaconda.org/conda-forge/datalad)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-datalad-green.svg)](https://anaconda.org/conda-forge/datalad) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/datalad.svg)](https://anaconda.org/conda-forge/datalad) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/datalad.svg)](https://anaconda.org/conda-forge/datalad) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/datalad.svg)](https://anaconda.org/conda-forge/datalad) |
 
 Installing datalad
 ==================

@@ -1,0 +1,25 @@
+From 643a76cf78a44042351738e9e96b15df3bb44b05 Mon Sep 17 00:00:00 2001
+From: Yaroslav Halchenko <debian@onerussian.com>
+Date: Sun, 10 Jun 2018 21:52:39 -0400
+Subject: [PATCH] Use backports.lzma instead of pyliblzma in setup.py
+
+---
+ setup.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/setup.py b/setup.py
+index 8206cbd7..d61d9b5b 100755
+--- a/setup.py
++++ b/setup.py
+@@ -57,7 +57,7 @@ if dist[0] == 'debian' and dist[1].split('.', 1)[0] == '7':
+ # there is not way to define an alternative here (AFAIK, yoh), we will
+ # use pyliblzma as the default for now.  Patch were you would prefer
+ # backports.lzma instead
+-req_lzma = ['pyliblzma'] if sys.version_info < (3, 3) else []
++req_lzma = ['backports.lzma'] if sys.version_info < (3, 3) else []
+ 
+ 
+ requires = {
+-- 
+2.17.0
+
