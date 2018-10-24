@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.10.3.1" %}
-{% set sha256 = "f87901b1c1d9e28bdbac1a56fefd80329cebaedcad780fe9d4b12bf27d64f791" %}
+{% set version = "0.11.0" %}
+{% set sha256 = "0a58b29b941aafadbeda33e84da8e62dc4f6b740bc1ae148edf897c11f795521" %}
 
 package:
   name: {{ name|lower }}
