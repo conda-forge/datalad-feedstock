@@ -15,7 +15,7 @@ source:
     - 0001-Use-backports.lzma-instead-of-pyliblzma-in-setup.py.patch
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - datalad=datalad.cmdline.main:main
     - git-annex-remote-datalad-archives=datalad.customremotes.archives:main
