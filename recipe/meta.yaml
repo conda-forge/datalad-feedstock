@@ -75,10 +75,12 @@ test:
     - datalad
 
   requires:
-    - httpretty
+    - BeautifulSoup4
+    - httpretty >=0.8.14
     - mock
     - nibabel
     - nose >=1.3.4
+    - vcrpy
 
 about:
   home: http://datalad.org
