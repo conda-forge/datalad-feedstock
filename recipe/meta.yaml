@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.11.4" %}
-{% set sha256 = "bd39558637df44e8281ce798665172eb4dfbe84fb10e2f1d723df0ea980cdb8e" %}
+{% set version = "0.11.5" %}
+{% set sha256 = "15a11e305ccfdb55c77d6a2f3fd763ce67dac3b993c640f2413f7e1f8cc092ff" %}
 
 package:
   name: {{ name|lower }}
@@ -15,7 +15,7 @@ source:
     - 0001-Use-backports.lzma-instead-of-pyliblzma-in-setup.py.patch
 
 build:
-  number: 1
+  number: 0
   entry_points:
     - datalad=datalad.cmdline.main:main
     - git-annex-remote-datalad-archives=datalad.customremotes.archives:main
@@ -35,10 +35,12 @@ requirements:
   run:
     - appdirs
     - boto
+    - chardet >=3.0.4
+    - colorama  # [win]
     - exifread
     - fasteners
     - git-annex
-    - gitpython >=2.0.8
+    - gitpython >=2.1.8
     - humanize
     - iso8601
     - jsmin
@@ -50,9 +52,12 @@ requirements:
     - patool >=1.7
     - pygithub
     - pyld <0.8|>=0.8.2
+    - pyperclip
+    - pyyaml
     - backports.lzma  # [py<33]
     - pillow
     - python
+    - python-dateutil
     # TODO
     # - python-xmp-toolkit
     - psutil
