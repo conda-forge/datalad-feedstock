@@ -13,6 +13,8 @@ source:
   patches:
     # Should stay here
     - 0001-Use-backports.lzma-instead-of-pyliblzma-in-setup.py.patch
+    # Should be removed with next release
+    - 0001-BF-TST-skip-vcr-based-github-tests-if-no-network.patch
 
 build:
   number: 0
