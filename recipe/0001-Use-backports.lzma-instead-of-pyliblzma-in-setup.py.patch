@@ -1,25 +1,25 @@
-From 3b95dd9767d87dcc72aa1cb70617980564b6dcaa Mon Sep 17 00:00:00 2001
-From: Yaroslav Halchenko <debian@onerussian.com>
-Date: Mon, 8 Apr 2019 08:42:23 -0400
-Subject: [PATCH] Use backports.lzma instead of pyliblzma in setup.py
+From 7afd6e409f7d591ccbbe80983287a0a8437a788a Mon Sep 17 00:00:00 2001
+From: Ilya Shlyakhter <ilya_shl@alum.mit.edu>
+Date: Wed, 31 Jul 2019 15:58:25 -0400
+Subject: [PATCH] change pyliblzma to backports.lzma
 
 ---
  setup.py | 2 +-
  1 file changed, 1 insertion(+), 1 deletion(-)
 
 diff --git a/setup.py b/setup.py
-index ea03cdbc..2e661da6 100755
+index db885ec..b4fadda 100755
 --- a/setup.py
 +++ b/setup.py
-@@ -101,7 +101,7 @@ requires = {
+@@ -93,7 +93,7 @@ requires = {
          # there is not way to define an alternative here (AFAIK, yoh), we will
          # use pyliblzma as the default for now.  Patch were you would prefer
          # backports.lzma instead
 -        'pyliblzma; python_version < "3.3"',
 +        'backports.lzma; python_version < "3.3"',
-         # was added in https://github.com/datalad/datalad/pull/1995 without
-         # due investigation, should not be needed until we add duecredit support
-         # 'duecredit',
+         'simplejson',
+         'whoosh',
+     ],
 -- 
 2.20.1
 

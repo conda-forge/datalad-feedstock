@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.11.4" %}
-{% set sha256 = "bd39558637df44e8281ce798665172eb4dfbe84fb10e2f1d723df0ea980cdb8e" %}
+{% set version = "0.11.6" %}
+{% set sha256 = "4c934721a5363efb4ea40f0210ac4b54cbc1853bb16dd9512792044ce789ce0e" %}
 
 package:
   name: {{ name|lower }}
@@ -13,9 +13,11 @@ source:
   patches:
     # Should stay here
     - 0001-Use-backports.lzma-instead-of-pyliblzma-in-setup.py.patch
+    # Until the next release
+    - 0001-BF-compare-annex-version-purely-by-the-version-based.patch
 
 build:
-  number: 1
+  number: 0
   entry_points:
     - datalad=datalad.cmdline.main:main
     - git-annex-remote-datalad-archives=datalad.customremotes.archives:main
@@ -35,24 +37,29 @@ requirements:
   run:
     - appdirs
     - boto
+    - chardet >=3.0.4
+    - colorama  # [win]
     - exifread
     - fasteners
     - git-annex
-    - gitpython >=2.0.8
+    - gitpython >=2.1.8
     - humanize
     - iso8601
     - jsmin
     - keyring >=8.0
     - keyrings.alt
     - mock >=1.0.1
-    - mutagen
+    - mutagen >=1.36
     - msgpack-python
     - patool >=1.7
     - pygithub
     - pyld <0.8|>=0.8.2
+    - pyperclip
+    - pyyaml
     - backports.lzma  # [py<33]
     - pillow
     - python
+    - python-dateutil
     # TODO
     # - python-xmp-toolkit
     - psutil
@@ -70,10 +77,12 @@ test:
     - datalad
 
   requires:
-    - httpretty
+    - BeautifulSoup4
+    - httpretty >=0.8.14
     - mock
     - nibabel
     - nose >=1.3.4
+    - vcrpy
 
 about:
   home: http://datalad.org
@@ -93,3 +102,4 @@ about:
 extra:
   recipe-maintainers:
     - yarikoptic
+    - notestaff

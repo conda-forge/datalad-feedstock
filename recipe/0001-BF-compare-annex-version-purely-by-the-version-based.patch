@@ -1,0 +1,33 @@
+From ebb8b931a7b9fe3c0abe98ca94d6d6b7f52fe913 Mon Sep 17 00:00:00 2001
+From: Yaroslav Halchenko <debian@onerussian.com>
+Date: Wed, 31 Jul 2019 18:25:50 -0400
+Subject: [PATCH] BF: compare annex version purely by the version based on the
+ date
+
+Fix first appeared in  7.20190708+git36-g32d526164-1 in NeuroDebian
+but conda carried 7.20190708-gbc74eb1 which managed to not compare
+"before" the +git36.
+Actual fix was in 7.20190708-32-g7be690f32 from Jul 16, so let"s
+just compare by the date at the cost of skipping on some neurodebians
+for now.  After all it is just a regression test for annex itself
+---
+ datalad/support/tests/test_annexrepo.py | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/datalad/support/tests/test_annexrepo.py b/datalad/support/tests/test_annexrepo.py
+index 2d8b8d595..c6abbb8d1 100644
+--- a/datalad/support/tests/test_annexrepo.py
++++ b/datalad/support/tests/test_annexrepo.py
+@@ -971,8 +971,7 @@ def test_AnnexRepo_get(src, dst):
+ 
+ 
+ @known_failure_direct_mode  #FIXME https://github.com/datalad/datalad/pull/3542#issuecomment-513791662
+-# Fix first appeared in  7.20190708+git36-g32d526164-1
+-@skip_if(external_versions['cmd:annex'] < '7.20190708+git36', "Needs freshier git-annex")
++@skip_if(external_versions['cmd:annex'] < '7.20190717', "Needs freshier git-annex")
+ @with_tree(tree={'file.dat': 'content'})
+ @with_tempfile
+ def test_v7_detached_get(opath, path):
+-- 
+2.22.0.455.g172b71a6c5
+
