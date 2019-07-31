@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.11.4" %}
-{% set sha256 = "bd39558637df44e8281ce798665172eb4dfbe84fb10e2f1d723df0ea980cdb8e" %}
+{% set version = "0.11.6" %}
+{% set sha256 = "4c934721a5363efb4ea40f0210ac4b54cbc1853bb16dd9512792044ce789ce0e" %}
 
 package:
   name: {{ name|lower }}
@@ -15,7 +15,7 @@ source:
     - 0001-Use-backports.lzma-instead-of-pyliblzma-in-setup.py.patch
 
 build:
-  number: 1
+  number: 0
   entry_points:
     - datalad=datalad.cmdline.main:main
     - git-annex-remote-datalad-archives=datalad.customremotes.archives:main
