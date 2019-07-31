@@ -35,24 +35,29 @@ requirements:
   run:
     - appdirs
     - boto
+    - chardet >=3.0.4
+    - colorama  # [win]
     - exifread
     - fasteners
     - git-annex
-    - gitpython >=2.0.8
+    - gitpython >=2.1.8
     - humanize
     - iso8601
     - jsmin
     - keyring >=8.0
     - keyrings.alt
     - mock >=1.0.1
-    - mutagen
+    - mutagen >=1.36
     - msgpack-python
     - patool >=1.7
     - pygithub
     - pyld <0.8|>=0.8.2
+    - pyperclip
+    - pyyaml
     - backports.lzma  # [py<33]
     - pillow
     - python
+    - python-dateutil
     # TODO
     # - python-xmp-toolkit
     - psutil
@@ -70,10 +75,12 @@ test:
     - datalad
 
   requires:
-    - httpretty
+    - BeautifulSoup4
+    - httpretty >=0.8.14
     - mock
     - nibabel
     - nose >=1.3.4
+    - vcrpy
 
 about:
   home: http://datalad.org
