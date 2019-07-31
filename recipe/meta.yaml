@@ -13,6 +13,8 @@ source:
   patches:
     # Should stay here
     - 0001-Use-backports.lzma-instead-of-pyliblzma-in-setup.py.patch
+    # Until the next release
+    - 0001-BF-compare-annex-version-purely-by-the-version-based.patch
 
 build:
   number: 0
