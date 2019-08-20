@@ -17,7 +17,7 @@ source:
     - 0001-BF-compare-annex-version-purely-by-the-version-based.patch
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - datalad=datalad.cmdline.main:main
     - git-annex-remote-datalad-archives=datalad.customremotes.archives:main
@@ -82,7 +82,7 @@ test:
     - mock
     - nibabel
     - nose >=1.3.4
-    - ddt 
+    - ddt >=1.1.1
     - vcrpy
 
 about:
