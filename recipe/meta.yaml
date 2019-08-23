@@ -65,7 +65,7 @@ requirements:
     - psutil
     - requests >=1.2
     - requests-ftp
-    - secretstorage  # [py>32]
+    - secretstorage  # [linux and py>32]
     - simplejson
     - six >=1.8.0
     - tqdm
