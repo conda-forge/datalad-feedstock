@@ -17,7 +17,7 @@ source:
     - 0001-BF-compare-annex-version-purely-by-the-version-based.patch
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - datalad=datalad.cmdline.main:main
     - git-annex-remote-datalad-archives=datalad.customremotes.archives:main
@@ -25,7 +25,7 @@ build:
   script: python -m pip install --no-deps --ignore-installed .
   # Do not even attempt until we get git-annex in there
   # Also skip py2 for now since lacks python-dbus needed for secretstorage 2.x needed by keyring
-  skip: True  # [not linux or py<32]
+  skip: True  # [py<32]
 
 requirements:
   build:
@@ -41,7 +41,7 @@ requirements:
     - colorama  # [win]
     - exifread
     - fasteners
-    - git-annex
+    - git-annex  # [linux]
     - gitpython >=2.1.8
     - humanize
     - iso8601
@@ -65,7 +65,7 @@ requirements:
     - psutil
     - requests >=1.2
     - requests-ftp
-    - secretstorage  # [py>32]
+    - secretstorage  # [linux and py>32]
     - simplejson
     - six >=1.8.0
     - tqdm
