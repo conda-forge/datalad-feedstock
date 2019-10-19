@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.11.8" %}
-{% set sha256 = "8461106756033c8d87ee2e104860a19f4cc14274fa5814aeb7f52a21770926c4" %}
+{% set version = "0.12.0rc5" %}
+{% set sha256 = "9d8cc345512d49f9482f34bd20d964352e93b4fe702a07e56a03fc98eea97187" %}
 
 package:
   name: {{ name|lower }}
@@ -10,9 +10,6 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    # Should stay here
-    - 0001-Use-backports.lzma-instead-of-pyliblzma-in-setup.py.patch
 
 build:
   number: 0
@@ -54,7 +51,6 @@ requirements:
     - pyld <0.8|>=0.8.2
     - pyperclip
     - pyyaml
-    - backports.lzma  # [py<33]
     - pillow
     - python
     - python-dateutil
