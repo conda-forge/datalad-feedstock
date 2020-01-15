@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.11.8" %}
-{% set sha256 = "8461106756033c8d87ee2e104860a19f4cc14274fa5814aeb7f52a21770926c4" %}
+{% set version = "0.12.1" %}
+{% set sha256 = "7be241933ada9bdba1455480b6dfc3bb60eaa95f7b04c7055c74a4f6137fe17c" %}
 
 package:
   name: {{ name|lower }}
@@ -10,9 +10,6 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    # Should stay here
-    - 0001-Use-backports.lzma-instead-of-pyliblzma-in-setup.py.patch
 
 build:
   number: 0
@@ -22,8 +19,8 @@ build:
     - git-annex-remote-datalad=datalad.customremotes.datalad:main
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   # Do not even attempt until we get git-annex in there
-  # Also skip py2 for now since lacks python-dbus needed for secretstorage 2.x needed by keyring
-  skip: True  # [py<32]
+  # py 3.5 is the minimal supported version as of 0.12.0
+  skip: True  # [py<35]
 
 requirements:
   build:
@@ -54,7 +51,6 @@ requirements:
     - pyld <0.8|>=0.8.2
     - pyperclip
     - pyyaml
-    - backports.lzma  # [py<33]
     - pillow
     - python
     - python-dateutil
