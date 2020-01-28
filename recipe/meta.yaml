@@ -37,7 +37,7 @@ requirements:
     - exifread
     - fasteners
     - git-annex  # [linux]
-    - gitpython >=2.1.8
+    - gitpython >=2.1.12
     - humanize
     - iso8601
     - jsmin
