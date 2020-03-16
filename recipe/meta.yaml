@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.12.2" %}
-{% set sha256 = "5b1d3ffd61113b211bf4759b80584f0f627de1b589e6cd18ea26dfafcc3bb6b4" %}
+{% set version = "0.12.3" %}
+{% set sha256 = "b7e8fdfdc7b5e038d72a763eb7f7d0a603fc1bb727fe96854382db6be9bb0180" %}
 
 package:
   name: {{ name|lower }}
@@ -20,7 +20,7 @@ build:
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   # Do not even attempt until we get git-annex in there
   # py 3.5 is the minimal supported version as of 0.12.0
-  skip: True  # [py<35]
+  skip: true  # [py<35]
 
 requirements:
   build:
@@ -66,7 +66,7 @@ requirements:
     - tqdm
     - whoosh
     - wrapt
-    
+
 test:
   imports:
     - datalad
@@ -83,7 +83,7 @@ about:
   home: http://datalad.org
   license: MIT
   license_file: COPYING
-  summary: 'data distribution geared toward scientific datasets'
+  summary: data distribution geared toward scientific datasets
   description: |
     DataLad aims to make data management and data distribution more accessible.
     To do that it stands on the shoulders of Git and Git-annex to deliver a
