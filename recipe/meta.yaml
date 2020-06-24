@@ -13,6 +13,7 @@ source:
   patches:
   - 0001-BF-skip-running-testremote-with-recent-not-yet-fixed.patch
   - 0001-BF-annotate-tests-in-test_utils_cached_dataset-with-.patch
+  - 0002-BF-TST-skip-one-case-of-test_ria_basics.test_binary_.patch
 
 build:
   number: 0
