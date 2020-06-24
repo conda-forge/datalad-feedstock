@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.12.7" %}
-{% set sha256 = "00089c869bedd6e5246e7334e6a5dd0f555cd2de24b02321b72b6279665e8775" %}
+{% set version = "0.13.0" %}
+{% set sha256 = "6dcacdcfe0817568da5561b9f14e5bc515170ab367aba188658a16bce1ffd4ea" %}
 
 package:
   name: {{ name|lower }}
@@ -10,6 +10,10 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+  - 0001-BF-skip-running-testremote-with-recent-not-yet-fixed.patch
+  - 0001-BF-annotate-tests-in-test_utils_cached_dataset-with-.patch
+  - 0002-BF-TST-skip-one-case-of-test_ria_basics.test_binary_.patch
 
 build:
   number: 0
@@ -31,6 +35,7 @@ requirements:
 
   run:
     - appdirs
+    - annexremote
     - boto
     - chardet >=3.0.4
     - colorama  # [win]
