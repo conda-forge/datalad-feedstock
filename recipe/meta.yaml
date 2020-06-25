@@ -39,6 +39,7 @@ requirements:
     - boto
     - chardet >=3.0.4
     - colorama  # [win]
+    - distro  # [py>=38]
     - exifread
     - fasteners
     - git-annex  # [linux]
