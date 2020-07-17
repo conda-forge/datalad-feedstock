@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.13.0" %}
-{% set sha256 = "6dcacdcfe0817568da5561b9f14e5bc515170ab367aba188658a16bce1ffd4ea" %}
+{% set version = "0.13.1" %}
+{% set sha256 = "8570f0ba6663f4897326cd6595f6ad3bd301d23c8e26ab32411c131bce7baf35" %}
 
 package:
   name: {{ name|lower }}
@@ -11,9 +11,9 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
-  - 0001-BF-skip-running-testremote-with-recent-not-yet-fixed.patch
-  - 0001-BF-annotate-tests-in-test_utils_cached_dataset-with-.patch
-  - 0002-BF-TST-skip-one-case-of-test_ria_basics.test_binary_.patch
+    - 0001-BF-skip-running-testremote-with-recent-not-yet-fixed.patch
+    - 0001-BF-annotate-tests-in-test_utils_cached_dataset-with-.patch
+    - 0002-BF-TST-skip-one-case-of-test_ria_basics.test_binary_.patch
 
 build:
   number: 0
