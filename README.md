@@ -5,7 +5,7 @@ Home: http://datalad.org
 
 Package license: MIT
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: data distribution geared toward scientific datasets
 
