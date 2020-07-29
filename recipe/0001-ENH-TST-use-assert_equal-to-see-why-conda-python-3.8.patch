@@ -1,0 +1,26 @@
+From 586a43a31ab3db75c8cebafa54bbc29c97a604dd Mon Sep 17 00:00:00 2001
+From: Yaroslav Halchenko <debian@onerussian.com>
+Date: Thu, 25 Jun 2020 13:26:01 -0400
+Subject: [PATCH] ENH(TST): use assert_equal to see why conda python 3.8 tests
+ fail
+
+---
+ datalad/tests/test_utils.py | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/datalad/tests/test_utils.py b/datalad/tests/test_utils.py
+index 161fabe63..6723afa86 100644
+--- a/datalad/tests/test_utils.py
++++ b/datalad/tests/test_utils.py
+@@ -1212,7 +1212,7 @@ def test_get_open_files(p):
+     eq_(get_open_files(p)[str(subd.resolve())].pid, proc.pid)
+     eq_(get_open_files(subd)[str(subd.resolve())].pid, proc.pid)
+     proc.terminate()
+-    assert not get_open_files(str(subd))
++    assert_equal(get_open_files(str(subd)), {})
+ 
+ 
+ def test_map_items():
+-- 
+2.26.2
+
