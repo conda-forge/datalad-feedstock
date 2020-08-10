@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.13.0" %}
-{% set sha256 = "6dcacdcfe0817568da5561b9f14e5bc515170ab367aba188658a16bce1ffd4ea" %}
+{% set version = "0.13.2" %}
+{% set sha256 = "78e293412ec874d084e0da41db80be32a327a53d11dcee04ec602525397235d8" %}
 
 package:
   name: {{ name|lower }}
@@ -11,10 +11,10 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
-  - 0001-BF-skip-running-testremote-with-recent-not-yet-fixed.patch
-  - 0001-BF-annotate-tests-in-test_utils_cached_dataset-with-.patch
-  - 0002-BF-TST-skip-one-case-of-test_ria_basics.test_binary_.patch
-  - 0001-ENH-TST-use-assert_equal-to-see-why-conda-python-3.8.patch
+    - 0001-BF-skip-running-testremote-with-recent-not-yet-fixed.patch
+    - 0001-BF-annotate-tests-in-test_utils_cached_dataset-with-.patch
+    - 0002-BF-TST-skip-one-case-of-test_ria_basics.test_binary_.patch
+    - 0001-ENH-TST-use-assert_equal-to-see-why-conda-python-3.8.patch
 
 build:
   number: 0
