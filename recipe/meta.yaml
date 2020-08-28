@@ -40,7 +40,6 @@ requirements:
     - fasteners
     - git
     - git-annex  # [linux]
-    - gitpython >=2.1.12
     - humanize
     - iso8601
     - jsmin
@@ -52,7 +51,6 @@ requirements:
     - p7zip  # [not win]
     - patool >=1.7
     - pygithub
-    - pyld <0.8|>=0.8.2
     - pyperclip
     - pyyaml
     - pillow
