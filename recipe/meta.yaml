@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.13.2" %}
-{% set sha256 = "78e293412ec874d084e0da41db80be32a327a53d11dcee04ec602525397235d8" %}
+{% set version = "0.13.3" %}
+{% set sha256 = "96a358319f89a7b86e8184a55592d4d14fb03817db9709b0ea233f07c6e72162" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   entry_points:
     - datalad=datalad.cmdline.main:main
     - git-annex-remote-datalad-archives=datalad.customremotes.archives:main
@@ -40,7 +40,6 @@ requirements:
     - fasteners
     - git
     - git-annex  # [linux]
-    - gitpython >=2.1.12
     - humanize
     - iso8601
     - jsmin
@@ -52,7 +51,6 @@ requirements:
     - p7zip  # [not win]
     - patool >=1.7
     - pygithub
-    - pyld <0.8|>=0.8.2
     - pyperclip
     - pyyaml
     - pillow
