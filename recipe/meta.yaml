@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - datalad=datalad.cmdline.main:main
     - git-annex-remote-datalad-archives=datalad.customremotes.archives:main
@@ -62,6 +62,7 @@ requirements:
     - requests >=1.2
     - requests-ftp
     - secretstorage  # [linux and py>32]
+    - setuptools
     - simplejson
     - six >=1.8.0
     - tqdm
