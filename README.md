@@ -5,9 +5,13 @@ Home: http://datalad.org
 
 Package license: MIT
 
-Feedstock license: BSD-3-Clause
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/datalad-feedstock/blob/master/LICENSE.txt)
 
 Summary: data distribution geared toward scientific datasets
+
+Development: https://github.com/datalad/datalad
+
+Documentation: http://datalad.readthedocs.io/
 
 DataLad aims to make data management and data distribution more accessible.
 To do that it stands on the shoulders of Git and Git-annex to deliver a
