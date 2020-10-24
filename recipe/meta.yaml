@@ -48,6 +48,7 @@ requirements:
     - mock >=1.0.1
     - mutagen >=1.36
     - msgpack-python
+    - 7zip  # [win]
     - p7zip  # [not win]
     - patool >=1.7
     - pygithub
