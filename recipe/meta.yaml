@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 2
   entry_points:
     - datalad=datalad.cmdline.main:main
     - git-annex-remote-datalad-archives=datalad.customremotes.archives:main
@@ -38,7 +38,7 @@ requirements:
     - distro  # [py>=38]
     - exifread
     - fasteners
-    - git
+    - git  # [not win]
     - git-annex  # [linux]
     - humanize
     - iso8601
