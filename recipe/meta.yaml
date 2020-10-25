@@ -55,6 +55,7 @@ requirements:
     - pyperclip
     - pyyaml
     - pillow
+    - posix  # [win]
     - python
     - python-dateutil
     # TODO
