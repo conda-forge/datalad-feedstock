@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 2
   entry_points:
     - datalad=datalad.cmdline.main:main
     - git-annex-remote-datalad-archives=datalad.customremotes.archives:main
@@ -38,7 +38,7 @@ requirements:
     - distro  # [py>=38]
     - exifread
     - fasteners
-    - git
+    - git  # [not win]
     - git-annex  # [linux]
     - humanize
     - iso8601
@@ -48,12 +48,14 @@ requirements:
     - mock >=1.0.1
     - mutagen >=1.36
     - msgpack-python
+    - 7zip  # [win]
     - p7zip  # [not win]
     - patool >=1.7
     - pygithub
     - pyperclip
     - pyyaml
     - pillow
+    - posix  # [win]
     - python
     - python-dateutil
     # TODO
