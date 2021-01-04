@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.13.6" %}
-{% set sha256 = "2105692f9781856adaf292bc391a440f7b02ba01782bb10562c40f195445f2dd" %}
+{% set version = "0.13.7" %}
+{% set sha256 = "ea4b08480b5f71d1823ed168c618d1aadb08172d787fb216adb33eea8a0b6cad" %}
 
 package:
   name: {{ name|lower }}
@@ -45,7 +45,6 @@ requirements:
     - jsmin
     - keyring >=8.0
     - keyrings.alt
-    - mock >=1.0.1
     - mutagen >=1.36
     - msgpack-python
     - 7zip  # [win]
@@ -65,7 +64,6 @@ requirements:
     - secretstorage  # [linux and py>32]
     - setuptools
     - simplejson
-    - six >=1.8.0
     - tqdm
     - whoosh
     - wrapt
