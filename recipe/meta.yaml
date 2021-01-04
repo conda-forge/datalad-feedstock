@@ -45,7 +45,6 @@ requirements:
     - jsmin
     - keyring >=8.0
     - keyrings.alt
-    - mock >=1.0.1
     - mutagen >=1.36
     - msgpack-python
     - 7zip  # [win]
@@ -65,7 +64,6 @@ requirements:
     - secretstorage  # [linux and py>32]
     - setuptools
     - simplejson
-    - six >=1.8.0
     - tqdm
     - whoosh
     - wrapt
