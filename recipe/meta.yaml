@@ -14,7 +14,7 @@ source:
     - 0001-BF-auto-do-not-proxy-anything-while-trying-to-establ.patch
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - datalad=datalad.cmdline.main:main
     - git-annex-remote-datalad-archives=datalad.customremotes.archives:main
