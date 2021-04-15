@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.14.1" %}
-{% set sha256 = "33a9c321ad067d7307c878d350c2278e2a637ce489d4f88ef355a4a6ba176ec0" %}
+{% set version = "0.14.2" %}
+{% set sha256 = "24fb31baf6843daef3f69d80f997a5687279858b49cf11aefcf39eed0b900d0b" %}
 
 package:
   name: {{ name|lower }}
@@ -10,8 +10,6 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    - 0001-TST-clone-Ensure-valid-identity-when-patching-HOME.patch
 
 build:
   number: 0
