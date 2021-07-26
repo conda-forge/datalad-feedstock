@@ -41,6 +41,7 @@ requirements:
     - git  # [not win]
     - git-annex  # [linux]
     - humanize
+    - importlib-metadata  # [py<38]
     - iso8601
     - jsmin
     - keyring >=8.0
