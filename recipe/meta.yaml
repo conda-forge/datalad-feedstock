@@ -43,17 +43,17 @@ requirements:
     - humanize
     - importlib-metadata  # [py<38]
     - iso8601
-    - jsmin
+    - jsmin  # [not (win and py>=39)]
     - keyring >=8.0
     - keyrings.alt
-    - mutagen >=1.36
+    - mutagen >=1.36  # [not (win and py>=39)]
     - msgpack-python
     - 7zip  # [win]
     - p7zip  # [not win]
     - patool >=1.7
     - pygithub
-    - pyperclip
-    - pillow
+    - pyperclip  # [not (win and py>=39)]
+    - pillow  # [not (win and py>=39)]
     - python
     - python-dateutil
     # TODO
