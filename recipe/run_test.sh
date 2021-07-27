@@ -13,5 +13,5 @@ git-annex-remote-datalad-archives --help
 git-annex-remote-datalad --help
 
 if [ "$(uname)" = "Linux" ] || hash git-annex; then
-    python -m nose -s -v -e test_system_ssh_version datalad
+    python -m nose -s -v -e 'test_(system_ssh_version|get_open_files)' datalad
 fi

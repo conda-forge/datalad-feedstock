@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.14.5" %}
-{% set sha256 = "f302d0a68f7944a2aca548381db1629c0ec14c40431ef73d56772dad27eb46ea" %}
+{% set version = "0.14.6" %}
+{% set sha256 = "149b25a00da133a81be3cbdc041a1985418f0918fa5961ba979e23b5b3c08c63" %}
 
 package:
   name: {{ name|lower }}
@@ -41,19 +41,19 @@ requirements:
     - git  # [not win]
     - git-annex  # [linux]
     - humanize
+    - importlib-metadata  # [py<38]
     - iso8601
-    - jsmin
+    - jsmin  # [not (win and py>=39)]
     - keyring >=8.0
     - keyrings.alt
-    - mutagen >=1.36
+    - mutagen >=1.36  # [not (win and py>=39)]
     - msgpack-python
     - 7zip  # [win]
     - p7zip  # [not win]
     - patool >=1.7
     - pygithub
-    - pyperclip
-    - pyyaml
-    - pillow
+    - pyperclip  # [not (win and py>=39)]
+    - pillow  # [not (win and py>=39)]
     - python
     - python-dateutil
     # TODO
@@ -69,6 +69,8 @@ requirements:
     - wrapt
 
 test:
+  requires:
+    - nose
   imports:
     - datalad
 
