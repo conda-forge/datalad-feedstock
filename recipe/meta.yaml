@@ -19,8 +19,8 @@ build:
     - git-annex-remote-datalad=datalad.customremotes.datalad:main
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   # Do not even attempt until we get git-annex in there
-  # py 3.5 is the minimal supported version as of 0.12.0
-  skip: true  # [py<35]
+  # py 3.6 is the minimal supported version as of 0.14.0
+  skip: true  # [py<36]
 
 requirements:
   host:
@@ -61,7 +61,7 @@ requirements:
     - psutil
     - requests >=1.2
     - requests-ftp
-    - secretstorage  # [linux and py>32]
+    - secretstorage  # [linux]
     - setuptools
     - simplejson
     - tqdm
