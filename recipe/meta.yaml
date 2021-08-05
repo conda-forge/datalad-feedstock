@@ -53,6 +53,7 @@ requirements:
     - patool >=1.7
     - pygithub
     - pyperclip  # [not (win and py>=39)]
+    - python-gitlab
     - pillow  # [not (win and py>=39)]
     - python
     - python-dateutil
