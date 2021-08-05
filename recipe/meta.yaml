@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.14.6" %}
-{% set sha256 = "149b25a00da133a81be3cbdc041a1985418f0918fa5961ba979e23b5b3c08c63" %}
+{% set version = "0.14.7" %}
+{% set sha256 = "02478cff60bb50f7c5fa3b3b7128013fee619bf7da373a60d9ab0493c9f7aad2" %}
 
 package:
   name: {{ name|lower }}
@@ -19,8 +19,8 @@ build:
     - git-annex-remote-datalad=datalad.customremotes.datalad:main
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   # Do not even attempt until we get git-annex in there
-  # py 3.5 is the minimal supported version as of 0.12.0
-  skip: true  # [py<35]
+  # py 3.6 is the minimal supported version as of 0.14.0
+  skip: true  # [py<36]
 
 requirements:
   host:
@@ -53,6 +53,7 @@ requirements:
     - patool >=1.7
     - pygithub
     - pyperclip  # [not (win and py>=39)]
+    - python-gitlab
     - pillow  # [not (win and py>=39)]
     - python
     - python-dateutil
@@ -61,7 +62,7 @@ requirements:
     - psutil
     - requests >=1.2
     - requests-ftp
-    - secretstorage  # [linux and py>32]
+    - secretstorage  # [linux]
     - setuptools
     - simplejson
     - tqdm
