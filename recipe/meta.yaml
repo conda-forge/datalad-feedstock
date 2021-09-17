@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.14.7" %}
-{% set sha256 = "02478cff60bb50f7c5fa3b3b7128013fee619bf7da373a60d9ab0493c9f7aad2" %}
+{% set version = "0.15.0" %}
+{% set sha256 = "73cd16a2c3fd6f0cbbe277cdf467756afaea41719d24f6692d9fc9e15313cf56" %}
 
 package:
   name: {{ name|lower }}
@@ -43,7 +43,6 @@ requirements:
     - humanize
     - importlib-metadata  # [py<38]
     - iso8601
-    - jsmin  # [not (win and py>=39)]
     - keyring >=8.0
     - keyrings.alt
     - mutagen >=1.36  # [not (win and py>=39)]
