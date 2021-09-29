@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.15.0" %}
-{% set sha256 = "73cd16a2c3fd6f0cbbe277cdf467756afaea41719d24f6692d9fc9e15313cf56" %}
+{% set version = "0.15.1" %}
+{% set sha256 = "0a905b3c3419786ae85b61a7aee34b0fc9eecd814f38408f2767ae7122b57a8b" %}
 
 package:
   name: {{ name|lower }}
@@ -11,8 +11,9 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
-    - 0001-Close-file-descriptors-after-process-exit.patch
     - 0001-Skip-2-tests-which-now-fail-on-conda.patch
+    - 0001-BF-start-global-test_http_server-only-if-not-running.patch
+    - 0002-BF-ProgressHandler-close-the-other-handler-if-was-sp.patch
 
 build:
   number: 0

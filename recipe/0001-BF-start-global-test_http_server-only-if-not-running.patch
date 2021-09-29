@@ -1,0 +1,56 @@
+From 7aca5e15a19b5a972d359a3c0ad8fdc6669f683a Mon Sep 17 00:00:00 2001
+From: Yaroslav Halchenko <debian@onerussian.com>
+Date: Wed, 29 Sep 2021 10:27:42 -0400
+Subject: [PATCH] BF: start global test_http_server only if not running already
+
+---
+ datalad/__init__.py | 23 ++++++++++++++++-------
+ 1 file changed, 16 insertions(+), 7 deletions(-)
+
+diff --git a/datalad/__init__.py b/datalad/__init__.py
+index d72406452..22e3d86f0 100644
+--- a/datalad/__init__.py
++++ b/datalad/__init__.py
+@@ -217,14 +217,19 @@ def setup_package():
+     # the URL will be available from datalad.test_http_server.url
+     from datalad.tests.utils import HTTPPath
+     import tempfile
++
+     global test_http_server
+-    serve_path = tempfile.mkdtemp(
+-        dir=cfg.get("datalad.tests.temp.dir"),
+-        prefix='httpserve',
+-    )
+-    test_http_server = HTTPPath(serve_path)
+-    test_http_server.start()
+-    _TEMP_PATHS_GENERATED.append(serve_path)
++    # Start the server only if not running already
++    # Relevant: we have test_misc.py:test_test which runs datalad.test but
++    # not doing teardown, so the original server might never get stopped
++    if test_http_server is None:
++        serve_path = tempfile.mkdtemp(
++            dir=cfg.get("datalad.tests.temp.dir"),
++            prefix='httpserve',
++        )
++        test_http_server = HTTPPath(serve_path)
++        test_http_server.start()
++        _TEMP_PATHS_GENERATED.append(serve_path)
+ 
+     if cfg.obtain('datalad.tests.setup.testrepos'):
+         lgr.debug("Pre-populating testrepos")
+@@ -258,8 +263,12 @@ def teardown_package():
+     if _test_states['loglevel'] is not None:
+         lgr.setLevel(_test_states['loglevel'])
+ 
++    global test_http_server
+     if test_http_server:
+         test_http_server.stop()
++        test_http_server = None
++    else:
++        lgr.debug("For some reason global http_server was not set/running, thus not stopping")
+ 
+     from datalad.tests import _TEMP_PATHS_GENERATED
+     if len(_TEMP_PATHS_GENERATED):
+-- 
+2.33.0
+
