@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.14.7" %}
-{% set sha256 = "02478cff60bb50f7c5fa3b3b7128013fee619bf7da373a60d9ab0493c9f7aad2" %}
+{% set version = "0.15.1" %}
+{% set sha256 = "0a905b3c3419786ae85b61a7aee34b0fc9eecd814f38408f2767ae7122b57a8b" %}
 
 package:
   name: {{ name|lower }}
@@ -10,6 +10,10 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
+  patches:
+    - 0001-Skip-2-tests-which-now-fail-on-conda.patch
+    - 0001-BF-start-global-test_http_server-only-if-not-running.patch
+    - 0002-BF-ProgressHandler-close-the-other-handler-if-was-sp.patch
 
 build:
   number: 0
@@ -43,7 +47,6 @@ requirements:
     - humanize
     - importlib-metadata  # [py<38]
     - iso8601
-    - jsmin  # [not (win and py>=39)]
     - keyring >=8.0
     - keyrings.alt
     - mutagen >=1.36  # [not (win and py>=39)]
