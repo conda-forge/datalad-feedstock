@@ -16,7 +16,7 @@ source:
     - 0002-BF-ProgressHandler-close-the-other-handler-if-was-sp.patch
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - datalad=datalad.cmdline.main:main
     - git-annex-remote-datalad-archives=datalad.customremotes.archives:main
