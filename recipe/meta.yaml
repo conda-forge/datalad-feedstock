@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.15.1" %}
-{% set sha256 = "0a905b3c3419786ae85b61a7aee34b0fc9eecd814f38408f2767ae7122b57a8b" %}
+{% set version = "0.15.3" %}
+{% set sha256 = "44f8c5b3960c6d9848aeecd868c82330c49689a21e975597df5b112dc2e5c9f0" %}
 
 package:
   name: {{ name|lower }}
@@ -16,7 +16,7 @@ source:
     - 0002-BF-ProgressHandler-close-the-other-handler-if-was-sp.patch
 
 build:
-  number: 1
+  number: 0
   entry_points:
     - datalad=datalad.cmdline.main:main
     - git-annex-remote-datalad-archives=datalad.customremotes.archives:main
