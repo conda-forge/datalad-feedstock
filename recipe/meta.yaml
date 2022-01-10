@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.15.3" %}
-{% set sha256 = "44f8c5b3960c6d9848aeecd868c82330c49689a21e975597df5b112dc2e5c9f0" %}
+{% set version = "0.15.4" %}
+{% set sha256 = "8adca7bd3d88f53a3fd8797c0bc0f205cd110e5c3e8cc3aa50ce1f8882beabc2" %}
 
 package:
   name: {{ name|lower }}
@@ -49,6 +49,7 @@ requirements:
     - msgpack-python
     - 7zip  # [win]
     - p7zip  # [not win]
+    - packaging
     - patool >=1.7
     - pygithub
     - pyperclip  # [not (win and py>=39)]
