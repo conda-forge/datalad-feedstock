@@ -70,8 +70,6 @@ requirements:
     - wrapt
 
 test:
-  requires:
-    - nose
   imports:
     - datalad
 
