@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.15.5" %}
-{% set sha256 = "e569494a5bd4e0f100013ec30529d5ac02e78ba476a75fc533c0d89c0e5473bc" %}
+{% set version = "0.16.1" %}
+{% set sha256 = "8a9e39def4d53f0f072caf65b4befa8ed12488eeb85e888e6b0d178d30ec8e96" %}
 
 package:
   name: {{ name|lower }}
@@ -20,7 +20,7 @@ build:
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   # Do not even attempt until we get git-annex in there
   # py 3.6 is the minimal supported version as of 0.14.0
-  skip: true  # [py<36]
+  skip: true  # [py<37]
 
 requirements:
   host:
@@ -31,7 +31,6 @@ requirements:
     - pypandoc
 
   run:
-    - appdirs
     - annexremote
     - boto
     - chardet >=3.0.4
@@ -42,7 +41,7 @@ requirements:
     - git  # [not win]
     - git-annex  # [linux]
     - humanize
-    - importlib-metadata  # [py<38]
+    - importlib-metadata  # [py<310]
     - iso8601
     - keyring >=8.0
     - keyrings.alt
@@ -51,7 +50,7 @@ requirements:
     - 7zip  # [win]
     - p7zip  # [not win]
     - patool >=1.7
-    - pygithub
+    - platformdirs
     - pyperclip  # [not (win and py>=39)]
     - python-gitlab
     - pillow  # [not (win and py>=39)]
@@ -67,7 +66,6 @@ requirements:
     - simplejson
     - tqdm
     - whoosh
-    - wrapt
 
 test:
   imports:
