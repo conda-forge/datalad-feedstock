@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.16.1" %}
-{% set sha256 = "8a9e39def4d53f0f072caf65b4befa8ed12488eeb85e888e6b0d178d30ec8e96" %}
+{% set version = "0.16.2" %}
+{% set sha256 = "1fab2d92bbd1b683ee86403ac63795a759208d43d7ff2c82e928c63f214ff876" %}
 
 package:
   name: {{ name|lower }}
@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 1
+  number: 0
   entry_points:
     - datalad=datalad.cmdline.main:main
     - git-annex-remote-datalad-archives=datalad.customremotes.archives:main
