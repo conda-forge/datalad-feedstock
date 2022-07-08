@@ -99,5 +99,5 @@ extra:
   recipe-maintainers:
     - yarikoptic
     - notestaff
-    - kyleam
     - mih
+    - jwodder
