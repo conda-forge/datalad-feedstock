@@ -13,6 +13,5 @@ git-annex-remote-datalad-archives --help
 git-annex-remote-datalad --help
 
 if [ "$(uname)" = "Linux" ] || hash git-annex; then
-    # test_subprocess_return_code_capture - https://github.com/datalad/datalad/issues/6109
-    python -m nose -s -v -e 'test_(system_ssh_version|get_open_files|subprocess_return_code_capture)' datalad
+    python -m pytest -s -v --pyargs datalad
 fi
