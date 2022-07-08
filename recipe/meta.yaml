@@ -83,6 +83,9 @@ test:
     - packaging
     - vcrpy
 
+  source_files:
+    - tox.ini
+
 about:
   home: http://datalad.org
   license: MIT
