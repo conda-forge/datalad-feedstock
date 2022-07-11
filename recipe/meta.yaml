@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.17.0" %}
-{% set sha256 = "1b25ee4f00aa82dc7685ac3e0d41ed11de9e576ccd600143338f471f00dffea0" %}
+{% set version = "0.17.1" %}
+{% set sha256 = "904579e429a7f17235c3682882a5052acea1dcf030668e9c314ea4681b3ce83c" %}
 
 package:
   name: {{ name|lower }}
@@ -11,7 +11,7 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
-  - 6817.diff
+    - 6817.diff
 
 build:
   number: 0
