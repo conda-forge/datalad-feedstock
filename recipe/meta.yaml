@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.17.6" %}
-{% set sha256 = "b9e2667dac2af7b816c875ea7920431efa7a16248e20276f502e3cb5aa0cc554" %}
+{% set version = "0.17.8" %}
+{% set sha256 = "d8e8ac3a6210da0c6414ac012044e818e116479210109add69766096cd8c1dfc" %}
 
 package:
   name: {{ name|lower }}
@@ -14,7 +14,7 @@ source:
     - 0001-BF-disable-testing-for-exit-code-for-batched-process.patch
 
 build:
-  number: 1
+  number: 0
   entry_points:
     - datalad=datalad.cmdline.main:main
     - git-annex-remote-datalad-archives=datalad.customremotes.archives:main
