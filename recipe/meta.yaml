@@ -76,6 +76,7 @@ test:
     - httpretty >=0.8.14
     - mock
     - nibabel
+    - nose
     - pytest
     - pytest-fail-slow
     - packaging
