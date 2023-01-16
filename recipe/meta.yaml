@@ -43,6 +43,7 @@ requirements:
     - humanize
     - importlib-metadata >=3.6  # [py<310]
     - iso8601
+    - looseversion
     - keyring >=8.0
     - keyrings.alt
     - mutagen >=1.36  # [not (win and py>=39)]
