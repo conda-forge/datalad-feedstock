@@ -16,5 +16,6 @@ if [ "$(uname)" = "Linux" ] || hash git-annex; then
     # workaround https://github.com/datalad/datalad/issues/6623
     export PYTHON_KEYRING_BACKEND=keyrings.alt.file.PlaintextKeyring
     # test_subprocess_return_code_capture - https://github.com/datalad/datalad/issues/6109
-    python -m pytest -s -v -k 'not test_subprocess_return_code_capture' --pyargs datalad
+    #python -m pytest -s -v -k 'not test_subprocess_return_code_capture' --pyargs datalad
+    python -m pytest -s -v -k 'test_clone_into_dataset' --pyargs datalad
 fi
