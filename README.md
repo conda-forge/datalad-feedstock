@@ -1,11 +1,11 @@
-About datalad
-=============
+About datalad-feedstock
+=======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/datalad-feedstock/blob/main/LICENSE.txt)
 
 Home: http://datalad.org
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/datalad-feedstock/blob/main/LICENSE.txt)
 
 Summary: data distribution geared toward scientific datasets
 
