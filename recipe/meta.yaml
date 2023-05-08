@@ -19,19 +19,17 @@ build:
     - git-annex-remote-datalad-archives=datalad.customremotes.archives:main
     - git-annex-remote-datalad=datalad.customremotes.datalad:main
   script: {{ PYTHON }} -m pip install . --no-deps -vv
-  # Do not even attempt until we get git-annex in there
-  # py 3.6 is the minimal supported version as of 0.14.0
-  skip: true  # [py<37]
 
 requirements:
   host:
-    - python
+    - python >=3.7
     - pip
     - setuptools
     - packaging
     - pypandoc
 
   run:
+    - python >=3.7
     - annexremote
     - boto
     - chardet >=3.0.4
@@ -56,7 +54,6 @@ requirements:
     - pyperclip  # [not (win and py>=39)]
     - python-gitlab
     - pillow  # [not (win and py>=39)]
-    - python
     - python-dateutil
     # TODO
     # - python-xmp-toolkit
