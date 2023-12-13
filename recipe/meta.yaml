@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "0.19.3" %}
-{% set sha256 = "1002181d50fc8d8f7f434ec39b6daa70c1b7786d275c52a56aa04af26ca74e05" %}
+{% set version = "0.19.4" %}
+{% set sha256 = "9f1063c656fb7596ad3745ca53ee3c3ae59f2651e56cc1fe062c4a2ef11c8507" %}
 
 package:
   name: {{ name|lower }}
@@ -69,6 +69,7 @@ requirements:
     - setuptools
     - simplejson
     - tqdm
+    - typing-extensions >=4.0.0  # [py<311]
     - whoosh
 
 test:
