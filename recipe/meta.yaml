@@ -69,6 +69,7 @@ requirements:
     - setuptools
     - simplejson
     - tqdm
+    - typing-extensions >=4.0.0  # [py<311]
     - whoosh
 
 test:
