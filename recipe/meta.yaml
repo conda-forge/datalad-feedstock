@@ -12,7 +12,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   entry_points:
     - datalad=datalad.cmdline.main:main
     - git-annex-remote-datalad-archives=datalad.customremotes.archives:main
@@ -45,6 +45,7 @@ requirements:
     - git-annex  # [linux]
     - humanize
     - importlib-metadata >=3.6  # [py<310]
+    - importlib-resources >=3.0  # [py<39]
     - iso8601
     - looseversion
     - keyring >=8.0
