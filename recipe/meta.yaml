@@ -35,7 +35,7 @@ requirements:
 
   run:
     - annexremote
-    - boto
+    - boto3
     - chardet >=3.0.4
     - colorama  # [win]
     - distro  # [py>=38]
