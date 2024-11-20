@@ -1,0 +1,42 @@
+From c90013ce936df80d3fac534d63e46f5c9e5472c1 Mon Sep 17 00:00:00 2001
+From: Yaroslav Halchenko <debian@onerussian.com>
+Date: Tue, 19 Nov 2024 19:44:17 -0500
+Subject: [PATCH] test: xfail test_subsuperdataset_save on newer gits
+
+The whole point for that "permissions" trick was to ensure that
+git does not go into submodules and thus we would be "optimized" and
+not waste cycles where not desired.  But the very fact that it errors
+out points that it is not the case.
+
+So this provides only taming down for
+  https://github.com/datalad/datalad/issues/7681
+and for a proper solution we better first wait on what git gurus say in
+  https://lore.kernel.org/git/ZzyyQpJw-kxJA7IS@bilena/T/#u
+---
+ datalad/core/local/tests/test_save.py | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/datalad/core/local/tests/test_save.py b/datalad/core/local/tests/test_save.py
+index 6f92da5e6..280d4795f 100644
+--- a/datalad/core/local/tests/test_save.py
++++ b/datalad/core/local/tests/test_save.py
+@@ -24,6 +24,7 @@ from datalad.api import (
+ from datalad.distribution.dataset import Dataset
+ from datalad.support.annexrepo import AnnexRepo
+ from datalad.support.exceptions import CommandError
++from datalad.support.external_versions import external_versions
+ from datalad.tests.utils_pytest import (
+     DEFAULT_BRANCH,
+     OBSCURE_FILENAME,
+@@ -245,6 +246,8 @@ def test_subdataset_save(path=None):
+     assert len(submodules) == 1
+ 
+ 
++@pytest.mark.xfail(external_versions['cmd:git'] > '2.45.2',
++                   reason="https://github.com/datalad/datalad/issues/7681")
+ @with_tempfile(mkdir=True)
+ def test_subsuperdataset_save(path=None):
+     # Verify that when invoked without recursion save does not
+-- 
+2.45.2
+
