@@ -20,9 +20,6 @@ build:
     - git-annex-remote-datalad-archives=datalad.customremotes.archives:main
     - git-annex-remote-datalad=datalad.customremotes.datalad:main
   script: {{ PYTHON }} -m pip install . --no-deps -vv
-  # Do not even attempt until we get git-annex in there
-  # py 3.9 is the minimal supported version as of 1.1.4
-  skip: true  # [py<39]
 
 requirements:
   build:
