@@ -21,8 +21,8 @@ build:
     - git-annex-remote-datalad=datalad.customremotes.datalad:main
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   # Do not even attempt until we get git-annex in there
-  # py 3.6 is the minimal supported version as of 0.14.0
-  skip: true  # [py<37]
+  # py 3.9 is the minimal supported version as of 1.1.4
+  skip: true  # [py<39]
 
 requirements:
   build:
@@ -40,27 +40,26 @@ requirements:
     - boto3
     - chardet >=3.0.4
     - colorama  # [win]
-    - distro  # [py>=38]
+    - distro
     - exifread
     - fasteners
     - git  # [not win]
     - git-annex  # [linux]
     - humanize
     - importlib-metadata >=3.6  # [py<310]
-    - importlib-resources >=3.0  # [py<39]
     - iso8601
     - looseversion
     - keyring >=8.0
     - keyrings.alt
-    - mutagen >=1.36  # [not (win and py>=39)]
+    - mutagen >=1.36  # [not win]
     - msgpack-python
     - 7zip  # [win]
     - p7zip  # [not win]
     - patool >=1.7
     - platformdirs
-    - pyperclip  # [not (win and py>=39)]
+    - pyperclip  # [not win]
     - python-gitlab
-    - pillow  # [not (win and py>=39)]
+    - pillow  # [not win]
     - python
     - python-dateutil
     # TODO
