@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "1.1.4" %}
-{% set sha256 = "db9286a4baf74d53d23c3bfb5928452197d57f36abed8ba0af334a3dd038166b" %}
+{% set version = "1.1.6" %}
+{% set sha256 = "8f536dad3531e831c832d8023ff3c8a7ebede868d70dfb7bf75fddc3b66b06dd" %}
 
 package:
   name: {{ name|lower }}
@@ -8,7 +8,7 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
   patches:
     - 0001-test-xfail-test_subsuperdataset_save-on-newer-gits.patch
