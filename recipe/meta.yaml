@@ -1,6 +1,6 @@
 {% set name = "datalad" %}
-{% set version = "1.1.4" %}
-{% set sha256 = "db9286a4baf74d53d23c3bfb5928452197d57f36abed8ba0af334a3dd038166b" %}
+{% set version = "1.2.1" %}
+{% set sha256 = "4d9f7ffe7a8a7b7eced97ba3d2d2257d527d4218c73ddf7e74eb343cf970d925" %}
 
 package:
   name: {{ name|lower }}
@@ -8,10 +8,8 @@ package:
 
 source:
   fn: {{ name }}-{{ version }}.tar.gz
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    - 0001-test-xfail-test_subsuperdataset_save-on-newer-gits.patch
 
 build:
   number: 0
@@ -21,8 +19,8 @@ build:
     - git-annex-remote-datalad=datalad.customremotes.datalad:main
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   # Do not even attempt until we get git-annex in there
-  # py 3.6 is the minimal supported version as of 0.14.0
-  skip: true  # [py<37]
+  # py 3.9 is the minimal supported version as of 1.1.4
+  skip: true  # [py<39]
 
 requirements:
   build:
