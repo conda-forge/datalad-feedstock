@@ -10,8 +10,6 @@ source:
   fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: {{ sha256 }}
-  patches:
-    - 0001-test-xfail-test_subsuperdataset_save-on-newer-gits.patch
 
 build:
   number: 0
@@ -21,8 +19,8 @@ build:
     - git-annex-remote-datalad=datalad.customremotes.datalad:main
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   # Do not even attempt until we get git-annex in there
-  # py 3.6 is the minimal supported version as of 0.14.0
-  skip: true  # [py<37]
+  # py 3.9 is the minimal supported version as of 1.1.4
+  skip: true  # [py<39]
 
 requirements:
   build:
