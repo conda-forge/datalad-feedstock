@@ -1,83 +1,95 @@
 {% set name = "datalad" %}
-{% set version = "1.2.1" %}
-{% set sha256 = "4d9f7ffe7a8a7b7eced97ba3d2d2257d527d4218c73ddf7e74eb343cf970d925" %}
+{% set version = "1.2.3" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  fn: {{ name }}-{{ version }}.tar.gz
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: {{ sha256 }}
+  sha256: 48f19d3e4fc7b2725240e6c47d6710f3bc46ad6b42455ff76dd3f6e34226f39f
 
 build:
-  number: 1
+  number: 0
   entry_points:
-    - datalad=datalad.cmdline.main:main
-    - git-annex-remote-datalad-archives=datalad.customremotes.archives:main
-    - git-annex-remote-datalad=datalad.customremotes.datalad:main
-  script: {{ PYTHON }} -m pip install . --no-deps -vv
-  # Do not even attempt until we get git-annex in there
-  # py 3.9 is the minimal supported version as of 1.1.4
-  skip: true  # [py<39]
+    - datalad = datalad.cli.main:main
+    - git-annex-remote-datalad-archives = datalad.customremotes.archives:main
+    - git-annex-remote-datalad = datalad.customremotes.datalad:main
+    - git-annex-remote-ria = datalad.customremotes.ria_remote:main
+    - git-annex-remote-ora = datalad.distributed.ora_remote:main
+    - git-credential-datalad = datalad.local.gitcredential_datalad:git_credential_datalad
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  noarch: python
 
 requirements:
-  build:
-    - python                                 # [build_platform != target_platform]
-    - cross-python_{{ target_platform }}     # [build_platform != target_platform]
   host:
-    - python
+    - python {{ python_min }}
     - pip
-    - setuptools
     - packaging
+    - setuptools >=59.0.0
+    - fasteners
+    - looseversion
+    # The ones below are not listed in the metadata!
     - pypandoc
-
   run:
-    - annexremote
-    - boto3
+    - python >={{ python_min }}
+    - platformdirs
     - chardet >=3.0.4
     - colorama  # [win]
-    - distro  # [py>=38]
+    - distro
+    - iso8601
+    - humanize
+    - fasteners >=0.14
+    - packaging
+    - patool >=1.7
+    - tqdm >=4.32.0
+    # NB: remove typing-extensions when droppping py310!
+    - typing-extensions >=4.0.0
+    - annexremote
+    - looseversion
+    - boto3
+    - keyring >=20.0,!=23.9.0
+    - keyrings.alt
+    - msgpack-python
+    - requests >=1.2
+    - python-gitlab
+    # The ones below are not listed in the metadata!
+    - 7zip  # [win]
     - exifread
-    - fasteners
     - git  # [not win]
     - git-annex  # [linux]
-    - humanize
-    - importlib-metadata >=3.6  # [py<310]
-    - importlib-resources >=3.0  # [py<39]
-    - iso8601
-    - looseversion
-    - keyring >=8.0
-    - keyrings.alt
-    - mutagen >=1.36  # [not (win and py>=39)]
-    - msgpack-python
-    - 7zip  # [win]
+    - mutagen >=1.36  # [not win]
     - p7zip  # [not win]
-    - patool >=1.7
-    - platformdirs
-    - pyperclip  # [not (win and py>=39)]
-    - python-gitlab
-    - pillow  # [not (win and py>=39)]
-    - python
-    - python-dateutil
-    # TODO
-    # - python-xmp-toolkit
+    - pillow  # [not win]
     - psutil
-    - requests >=1.2
+    - pyperclip  # [not win]
+    - python-dateutil
     - requests-ftp
     - secretstorage  # [linux]
     - setuptools
     - simplejson
-    - tqdm
-    - typing-extensions >=4.0.0  # [py<311]
     - whoosh
+    # TODO
+    # - python-xmp-toolkit
+    # OS-noarch
+    - __unix  # [unix]
+    - __win   # [win]
 
 test:
   imports:
     - datalad
-
+  commands:
+    - pip check
+    - datalad --help
+    - git-annex-remote-datalad-archives --help
+    - git-annex-remote-datalad --help
+    - git-annex-remote-ria --help
+    - git-annex-remote-ora --help
+    - git-credential-datalad --help
   requires:
+    - python {{ python_min }}
+    - pip
+    # The ones below are not listed in the metadata!
     - BeautifulSoup4
     - httpretty >=0.8.14
     - mock
@@ -87,23 +99,21 @@ test:
     - pytest-fail-slow
     - packaging
     - vcrpy
-
   source_files:
     - tox.ini
 
 about:
-  home: http://datalad.org
+  home: https://datalad.org
   license: MIT
   license_file: COPYING
-  summary: data distribution geared toward scientific datasets
+  summary: Distributed system for joint management of code, data, and their relationship
   description: |
-    DataLad aims to make data management and data distribution more accessible.
-    To do that it stands on the shoulders of Git and Git-annex to deliver a
-    decentralized system for data exchange. This includes automated ingestion of
-    data from online portals, and exposing it in readily usable form as Git(-annex)
-    repositories, so-called datasets. The actual data storage and permission
-    management, however, remains with the original data providers.
-  doc_url: http://datalad.readthedocs.io/
+    DataLad's purpose is to make data management and data distribution more accessible.
+    To do so, it stands on the shoulders of Git and Git-annex to deliver a decentralized
+    system for data exchange. This includes automated ingestion of data from online portals and
+    exposing it in readily usable form as Git(-annex) repositories - or datasets. However,
+    the actual data storage and permission management remains with the original data provider(s).
+  doc_url: https://datalad.readthedocs.io/
   dev_url: https://github.com/datalad/datalad
 
 extra:

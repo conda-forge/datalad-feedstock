@@ -1,4 +1,5 @@
 bot:
+  inspection: update-grayskull
   automerge: true
 build_platform:
   osx_arm64: osx_64
@@ -11,3 +12,7 @@ github:
 provider:
   win: azure
 test: native_and_emulated
+noarch_platforms:
+  - linux_64
+  - osx_64
+  - win_64
