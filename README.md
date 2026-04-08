@@ -3,7 +3,7 @@ About datalad-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/datalad-feedstock/blob/main/LICENSE.txt)
 
-Home: http://datalad.org
+Home: https://datalad.org
 
 Package license: MIT
 
@@ -11,14 +11,13 @@ Summary: Distributed system for joint management of code, data, and their relati
 
 Development: https://github.com/datalad/datalad
 
-Documentation: http://datalad.readthedocs.io/
+Documentation: https://datalad.readthedocs.io/
 
-DataLad aims to make data management and data distribution more accessible.
-To do that it stands on the shoulders of Git and Git-annex to deliver a
-decentralized system for data exchange. This includes automated ingestion of
-data from online portals, and exposing it in readily usable form as Git(-annex)
-repositories, so-called datasets. The actual data storage and permission
-management, however, remains with the original data providers.
+DataLad's purpose is to make data management and data distribution more accessible.
+To do so, it stands on the shoulders of Git and Git-annex to deliver a decentralized
+system for data exchange. This includes automated ingestion of data from online portals and
+exposing it in readily usable form as Git(-annex) repositories - or datasets. However,
+the actual data storage and permission management remains with the original data provider(s).
 
 
 Current build status
