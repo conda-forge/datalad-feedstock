@@ -37,6 +37,7 @@ requirements:
     - packaging
     - fasteners
     - looseversion
+    - typing-extensions >=4.0.0  # [py<311]
     - pypandoc
 
   run:
