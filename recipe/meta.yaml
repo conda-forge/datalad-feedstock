@@ -14,13 +14,16 @@ source:
 build:
   number: 0
   entry_points:
-    - datalad=datalad.cmdline.main:main
+    - datalad=datalad.cli.main:main
     - git-annex-remote-datalad-archives=datalad.customremotes.archives:main
     - git-annex-remote-datalad=datalad.customremotes.datalad:main
+    - git-annex-remote-ria=datalad.customremotes.ria_remote:main
+    - git-annex-remote-ora=datalad.distributed.ora_remote:main
+    - git-credential-datalad=datalad.local.gitcredential_datalad:git_credential_datalad
   script: {{ PYTHON }} -m pip install . --no-deps -vv
   # Do not even attempt until we get git-annex in there
-  # py 3.9 is the minimal supported version as of 1.1.4
-  skip: true  # [py<39]
+  # py 3.10 is the minimal supported version
+  skip: true  # [py<310]
 
 requirements:
   build:
@@ -29,49 +32,47 @@ requirements:
   host:
     - python
     - pip
-    - setuptools
+    - setuptools >=59.0.0
+    - wheel
     - packaging
+    - fasteners
+    - looseversion
     - pypandoc
 
   run:
+    - python
+    # core
     - annexremote
-    - boto3
     - chardet >=3.0.4
     - colorama  # [win]
-    - distro  # [py>=38]
-    - exifread
-    - fasteners
-    - git  # [not win]
-    - git-annex  # [linux]
+    - distro
+    - fasteners >=0.14
     - humanize
-    - importlib-metadata >=3.6  # [py<310]
-    - importlib-resources >=3.0  # [py<39]
     - iso8601
     - looseversion
-    - keyring >=8.0
-    - keyrings.alt
-    - mutagen >=1.36  # [not (win and py>=39)]
-    - msgpack-python
-    - 7zip  # [win]
-    - p7zip  # [not win]
+    - packaging
     - patool >=1.7
     - platformdirs
-    - pyperclip  # [not (win and py>=39)]
-    - python-gitlab
-    - pillow  # [not (win and py>=39)]
-    - python
-    - python-dateutil
-    # TODO
-    # - python-xmp-toolkit
-    - psutil
-    - requests >=1.2
-    - requests-ftp
-    - secretstorage  # [linux]
-    - setuptools
-    - simplejson
-    - tqdm
+    - tqdm >=4.32.0
     - typing-extensions >=4.0.0  # [py<311]
-    - whoosh
+    # downloaders
+    - boto3
+    - keyring >=20.0,!=23.9.0
+    - keyrings.alt
+    - msgpack-python
+    - requests >=1.2
+    # publish
+    - python-gitlab
+    # optional but included for a more complete experience
+    - psutil
+    - pyperclip  # [not (win and py>=39)]
+    - python-dateutil
+    - requests-ftp
+    # non-python
+    - git  # [not win]
+    - git-annex  # [linux]
+    - 7zip  # [win]
+    - p7zip  # [not win]
 
 test:
   imports:
@@ -79,12 +80,10 @@ test:
 
   requires:
     - BeautifulSoup4
-    - httpretty >=0.8.14
-    - mock
-    - nibabel
-    - nose
-    - pytest
-    - pytest-fail-slow
+    - httpretty >=0.9.4
+    - pytest >=7.0
+    - pytest-fail-slow >=0.2
+    - pytest-retry
     - packaging
     - vcrpy
 
